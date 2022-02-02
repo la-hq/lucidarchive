@@ -83,7 +83,7 @@ vpApp.filter('bandcampEmbed', function($sce) {
 
 vpApp.controller('MainController', function($scope, $http, $q, $window) {
   function parseCsv(csvText) {
-    var CELL_REGEX = /([,\r\n]|^)("((?:[^"]|"")+)"|[^,\r\n]*)/g;
+    var CELL_REGEX = /(,|\r?\n|^)("((?:[^"]|"")+)"|[^,\r\n]*)/g;
 
     var grid = [];
     var row = null;
@@ -156,6 +156,12 @@ vpApp.controller('MainController', function($scope, $http, $q, $window) {
     }
     $scope.sortFields = sortFields;
 
+    var citationsIndex = head.indexOf('Citations');
+    if (citationsIndex < 0) {
+      console.error("'Citations' column not found.");
+      citationsIndex = Number.POSITIVE_INFINITY;
+    }
+
     //db scope
     for (r = 1; r < table.length; r++) {
       if (!table[r])
@@ -173,6 +179,9 @@ vpApp.controller('MainController', function($scope, $http, $q, $window) {
           // var arr = tableInput[r][c].split('"');
           // dbRow[head[c]] = arr[1];
           // dbRow.Thumbnail = arr[3] || arr[1];
+        }
+        else if (citationsIndex <= c) {
+          (dbRow['Citations'] || (dbRow['Citations'] = [])).push(table[r][c]);
         }
         else {
           dbRow[head[c]] = table[r][c];
