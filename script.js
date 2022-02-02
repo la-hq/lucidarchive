@@ -174,13 +174,7 @@ vpApp.controller('MainController', function($scope, $http, $q, $window) {
         if (!tableInput[r][c])
           continue;
 
-        if ('Art URL' === head[c]) {
-          dbRow.Thumbnail = table[r][c];
-          // var arr = tableInput[r][c].split('"');
-          // dbRow[head[c]] = arr[1];
-          // dbRow.Thumbnail = arr[3] || arr[1];
-        }
-        else if (citationsIndex <= c) {
+        if (citationsIndex <= c) {
           (dbRow['Citations'] || (dbRow['Citations'] = [])).push(table[r][c]);
         }
         else {
