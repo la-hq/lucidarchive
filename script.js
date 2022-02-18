@@ -134,20 +134,21 @@ vpApp.controller('MainController', function($scope, $http, $q, $window) {
     var head = table[0];
 
     //guide scope
-    var start = head.indexOf('UID');
-    var end = head.indexOf('Art');
+    var guideStart = head.indexOf('UID');
+    var guideEnd = head.indexOf('Cover');
 
-    var guideCells = tableInput[0].slice(start, end);
+    var guideCells = tableInput[0].slice(guideStart, guideEnd);
     var guideFilter = function(a, i) {
       return 0 === guideCells[i].indexOf('=HYPERLINK(');
     };
-    $scope.guideFields = head.slice(start, end).filter(guideFilter); // 0 is all albums
+    $scope.guideFields = head.slice(guideStart, guideEnd).filter(guideFilter); // 0 is all albums
     $scope.guideUrls = guideCells.filter(guideFilter).map(function(a) {
       return a.split('"')[1];
     });
 
     //unlabeled fields
-    var sortFields = head.slice(end).filter(field => !!field);
+    var sortStart = head.indexOf('Date');
+    var sortFields = head.slice(sortStart).filter(field => !!field);
     var unlabeledFields = ['Date', 'Genre', 'Subgenre'];
     for (var i = 0; i < unlabeledFields.length; i++) {
       var j = sortFields.indexOf(unlabeledFields[i]);
