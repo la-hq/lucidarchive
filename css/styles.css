@@ -90,7 +90,7 @@ h6 { font-size: 70%; line-height: 1.6;  letter-spacing: 0; }
 
 .tile {
   position: relative;
-  
+
   width: 25%;
   max-width: 25%;
   padding-bottom: 25%;
@@ -99,39 +99,34 @@ h6 { font-size: 70%; line-height: 1.6;  letter-spacing: 0; }
 
 .tile div {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  top: 0.5px;
+  left: 0.5px;
+  bottom: 0.5px;
+  right: 0.5px;
+}
+.tile img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 
-.tile > div {
-  margin: 0.5px;
+.tile > .info {
   box-sizing: border-box;
-  
-  background-size: cover;
-  background-position: center;
-  
+
   overflow: hidden;
-}
 
-/*.tile > div:hover {
-  border: 1px solid #FFF;
-  margin: -0.5px;
-}*/
-
-.tile > div > div {
   opacity: 0;
   transition: opacity 100ms linear;
-  
+
   background-color: rgba(0, 0, 0, 0.75);
   color: #FFF;
   text-transform: none;
   padding: 5%;
   text-align: center;
 }
-
-.tile > div:hover > div {
+.tile > .info:hover {
   opacity: 1;
 }
 

@@ -32,12 +32,13 @@
   <script type="text/ng-template" id="albumTemplate">
     <a ng-if="::album" ng-href="#/a/{{::album.UID}}" title="{{::album.Pseudonym}} - {{::album.Title}}">
       <div class="tile">
-        <div ng-style="::{'background-image':'url(\'' + ((useFullArt ? album.Cover : album.Thumb) | noProtocol) + '\')'}">
-          <div>
-            <h6 ng-bind="::album.Date"></h6>
-            <h5 ng-bind="::album.Title"></h5>
-            <h6 ng-bind="::album.Pseudonym"></h6>
-          </div>
+        <div class="image">
+          <img ng-src="{{::((useFullArt ? album.Cover : album.Thumb) | noProtocol)}}" loading="lazy" />
+        </div>
+        <div class="info">
+          <h6 ng-bind="::album.Date"></h6>
+          <h5 ng-bind="::album.Title"></h5>
+          <h6 ng-bind="::album.Pseudonym"></h6>
         </div>
       </div>
     </a>
