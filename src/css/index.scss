@@ -1,0 +1,23 @@
+html {
+    background-color: #000;
+    color: #ccc;
+
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+h1 { font-size: 1000%; line-height: 1.2;  letter-spacing: -.1rem; }
+h2 { font-size: 450%;  line-height: 1.35; letter-spacing: -.08rem; }
+h3 { font-size: 250%;  line-height: 1.5;  letter-spacing: -.05rem; }
+h4 { font-size: 150%;  line-height: 1.6;  letter-spacing: 0; }
+h5 { font-size: 110%;  line-height: 1.4;  letter-spacing: 0; }
+h6 { font-size: 70%;   line-height: 1.6;  letter-spacing: 0; }

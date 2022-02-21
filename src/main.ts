@@ -1,4 +1,7 @@
-import App from './App.svelte';
+import 'normalize.css';
+import './css/index.scss';
+
+import App from './svelte/App.svelte';
 
 const app = new App({
 	target: document.body,
